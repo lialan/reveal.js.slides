@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Overview of current compilers and virtual machines</title>
+    <title>Compilers and Virtual Machines</title>
 
-    <meta name="description" content="An introduction to open source compilation technologies">
+    <meta name="description" content="An engineering overview in 2019">
     <meta name="author" content="Alan Li">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -45,7 +45,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <!-- title slide -->
         <section>
           <h3>Open Source Compilers <br/>and<br/> Virtual Machines</h3>
-          <h6>Current status in 2019</h6>
+          <h6>An engineering overview</h6>
           <br/>
           <small>Alan Li</small>
         </section>
@@ -62,31 +62,63 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section style="text-align: left;">
-          <h4>Compiler: </h4>
+          <h4>Compilers: After 50 years still going strong</h4>
           <ul style="list-style-type:square">
-            <li> </li>
+            <li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.146.5206&rep=rep1&type=pdf">Compiler Research: The next 50 years</a></li>
+            <li><a href="https://liberty.princeton.edu/Publications/ieeepro83_future.pdf">Compiler Technology for Future Microprocessors</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>Active Open Source compilers</h4>
+          <ul style="list-style-type:square">
+            <li>GCC</li>
+            <li>LLVM</li>
+            <li><a href="https://github.com/open-watcom/open-watcom-v2">Open Watcom Compiler</a></li>
+            <li><a href="http://sdcc.sourceforge.net/">Small Device C Compiler (SPCC)</a></li>
+            <li>...</li>
           </ul>
         </section>
 
 
         <section style="text-align: left;">
-          <h4>LLVM IR: core of LLVM</h4>
+          <h4>Case study: Choosing LLVM</h4>
           <ul style="list-style-type:square">
-            <li></li>
+            <li>UIUC License: permissive free</li>
+            <li>Modular design</li>
+            <li>Industry support</li>
+            <li>Excellent software engineering practice</li>
+            <li>Large ecosystem</li>
           </ul>
         </section>
 
         <section style="text-align: left;">
-          <h4>LLVM IR: the good, the bad and the ugly</h4>
+          <h4>LLVM IR: at the core of LLVM ecosystem</h4>
           <ul style="list-style-type:square">
-            <li></li>
+            <li>IR: Intermediate Representation (TODO: use graph)</li>
+            <ul style="list-style-type:circle">
+              <li>multiple sources</li>
+              <li>multiple target</li>
+              <li>designed for special needs</li>
+            </ul>
+            <li>Designed to be a lower, universal IR for higher languages</li>
+            <li>LLVM Modules are built around LLVM IR</li>
+            <li>*NOT* a silver bullet</li>
           </ul>
         </section>
 
         <section style="text-align: left;">
           <h4>MLIR: evolution of LLVM IR</h4>
           <ul style="list-style-type:square">
-            <li>  </li>
+            <li>ML is multi-purpose: multi-level, machine learning</li>
+            <li>For the Machine Learning community and beyond</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>Case study: WebAssembly</h4>
+          <ul style="list-style-type:square">
+            <li> </li>
           </ul>
         </section>
 
