@@ -95,16 +95,35 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section style="text-align: left;">
           <h4>Case study: Choosing LLVM</h4>
           <ul style="list-style-type:square">
-            <li>UIUC License: permissive free</li>
+            <li>UIUC License: permissive free at no charge</li>
             <li>Modular design</li>
-            <li>Industry support</li>
+            <li>Industrial adoption</li>
             <li>Excellent software engineering practice</li>
             <li>Large ecosystem</li>
           </ul>
         </section>
 
+        <section style="text-align: left;">
+          <h4>Commercial LLVM (albeit a small niche)</h4>
+          <ul style="list-style-type:square">
+            <li>History: GCC is too sucessful</li>
+            <ul style="list-style-type:square">
+              <li>GCC destroyed most compiler companies</li>
+            </ul>
+            <li>LLVM makes commercial compiler companies possibly again</li>
+            <ul style="list-style-type:square">
+              <li>'BSD' licensing permits proprietary uses</li>
+              <li>Competitve compiler infrastructure</li>
+              <li>Modular design works for multiple purposes</li>
+              <li>Easy to create specialty compilers</li>
+              <li>Large ecosystem and friendly community</li> 
+            </ul>
+          </ul>
+        </section>
+
         <section>
-          <h4>Case study: 方舟编译器</h4>
+          <h4>方舟编译器(1)</h4>
+          A case study
           <ul style="list-style-type:square">
             <li>A Java AOT compiler for Android</li>
             <ul style="list-style-type:circle">
@@ -119,13 +138,18 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>Cannot get rid of garbage collection</li>
               <li>Compatible with all(most?) Android distros</li>
             </ul>
+        </section>
 
-            <li>Can it live up with expectations?</li>
-            <ul style="list-style-type:circle">
-              <li>Sound idea: works for smartphones</li>
-              <li>Optimizations might not be compatible with third-party tools</li>
-              <li>The improvement of JIT in Android might offset benefits</li> 
-            </ul>
+        <section>
+          <h4>方舟编译器(2)</h4>
+          Can it live up with expectations?
+          <ul style="list-style-type:circle">
+            <li>Security is a concern</li>
+            <li>Should work for lightweight smartphone applications</li>
+            <li>Might not work for heavyweight applications</li>
+            <li>Optimizations might not be compatible with third-party tools</li>
+            <li>Improvement in Android JIT cannot benefit</li> 
+            <li>JIT will eventually prevail</li>
           </ul>
         </section>
 
@@ -145,18 +169,61 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section style="text-align: left;">
+          <h4>Future topics of compiler engineering</h4>
+          <small>What we talk about when we talk about the end of Moore's Law?</small>
+          <ul style="list-style-type:square">
+            <li>Heterogeneous Computing</li>
+            <ul style="list-style-type:circle">
+              <li>GPGPU, BigData engines</li>
+            </ul>
+            <li>Machine Learning frameworks</li>
+            <ul style="list-style-type:circle">
+              <li>TensorFlow, TVM, etc...</li>
+            </ul>
+            <li>Blockchain execution engine</li>
+            <ul style="list-style-type:circle">
+              <li>Verified smart contract compiing</li>
+              <li>Executing cost optimization</li>
+              <li>Privacy-preserving computing</li>
+            </ul>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
           <h4>MLIR: evolution of LLVM IR</h4>
           <ul style="list-style-type:square">
-            <li>ML is multi-purpose: multi-level, machine learning</li>
-            <li>For the Machine Learning community and beyond</li>
+            <li>"ML" is multi-purpose: multi-level, machine learning</li>
+            <li>Built for the Machine Learning community and beyond</li>
+            <li>Designed to be a unified infrastructure</li>
+            <li>Targetting the gap between source code level and LLVM IR level</li>
+            <ul style="list-style-type:circle">
+              <li>MLIR does not support low level code generation</li>
+              <li>Works best together with LLVM</li>
+            </ul>
+            <li>Permits representation and optimizations LLVM IR cannot do</li>
+            <ul style="list-style-type:circle">
+              <li>easier polyhedral optimizations</li>
+              <li>already works for all TensorFlow graphs</li>
+            </ul>
           </ul>
         </section>
 
         <section style="text-align: left;">
           <h4>Case study: WebAssembly</h4>
+          WASM is aiming to change the web
+          <small>Performance is its goal</small>
           <ul style="list-style-type:square">
-            <li> </li>
+            <li>Distributed in precompiled format</li>
+            <ul style="list-style-type:circle">
+              <li>avoids parsing and most optimizations</li>
+            </ul>
+            <li><a href="https://github.com/WebAssembly/wasm-c-api">Host API</a>
+               makes it even faster</li>
+            <li>Streaming compiling made possible</li>
           </ul>
+          <li>Improves HTML5 only pages</li>
+          <li>Safe guaranteed by WASM virtual machine</li>
+          <li>New commercial opportunities</li>
         </section>
 
         <section style="text-align: left;">
