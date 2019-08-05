@@ -76,10 +76,21 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <li>LLVM</li>
             <li><a href="https://github.com/open-watcom/open-watcom-v2">Open Watcom Compiler</a></li>
             <li><a href="http://sdcc.sourceforge.net/">Small Device C Compiler (SPCC)</a></li>
+            <li><a href="https://github.com/dotnet/llilc">Microsoft's LLILC</a></li>
             <li>...</li>
           </ul>
         </section>
 
+        <section>
+          <h4>Measurement of compiler performance</h4>
+          <ul style="list-style-type:square">
+            <li>Execution speed</li>
+            <li>Code size</li>
+            <li>Power efficiency</li>
+            <li>Cost of execution</li>
+            <li>Memory consumption</li>
+          </ul>
+        </section>
 
         <section style="text-align: left;">
           <h4>Case study: Choosing LLVM</h4>
@@ -89,6 +100,32 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <li>Industry support</li>
             <li>Excellent software engineering practice</li>
             <li>Large ecosystem</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Case study: 方舟编译器</h4>
+          <ul style="list-style-type:square">
+            <li>A Java AOT compiler for Android</li>
+            <ul style="list-style-type:circle">
+              <li>Compiles Java bytecode into Binary</li>
+              <li>GCC-based: will open source in November 2019</li>
+            </ul>
+
+            <li>What do we know from the existing advertisement?</li>
+            <ul style="list-style-type:circle">
+              <li>Eliminate(alleviate) JNI overhead</li>
+              <li>Still needs runtime library</li>
+              <li>Cannot get rid of garbage collection</li>
+              <li>Compatible with all(most?) Android distros</li>
+            </ul>
+
+            <li>Can it live up with expectations?</li>
+            <ul style="list-style-type:circle">
+              <li>Sound idea: works for smartphones</li>
+              <li>Optimizations might not be compatible with third-party tools</li>
+              <li>The improvement of JIT in Android might offset benefits</li> 
+            </ul>
           </ul>
         </section>
 
