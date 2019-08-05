@@ -209,10 +209,38 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section style="text-align: left;">
-          <h4>Case study: WebAssembly</h4>
-          WASM is aiming to change the web
-          <small>Performance is its goal</small>
+          <h4>Virtual Machines</h4>
+          VMs are everywhere
           <ul style="list-style-type:square">
+            <li>Embedded in language runtimes:</li>
+            <ul style="list-style-type:circle">
+              <li>Java, Python, JavaScript</li>
+            </ul>
+            <li>VM Components:</li>
+            <ul style="list-style-type:circle">
+              <li>Library, Interpreter, Garbage Collector, JIT</br>
+              <small>GC and JIT can be extremely coplicated</small></li>
+            </ul>
+            <li>Other types of VMs</li>
+            <ul style="list-style-type:circle">
+              <li>System-level VMs, Binary-translators, emulators...</li>
+            </ul>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>VM is a serious engineering effort</h4>
+          <ul style="list-style-type:square">
+            <li></li> 
+          </ul>
+  
+        </section>
+
+        <section style="text-align: left;">
+          <h4>Case study: WebAssembly</h4>
+          <small>WASM is aiming to change the web</small>
+          <ul style="list-style-type:square">
+            <li>WASM is a build target, not a language</li>
             <li>Distributed in precompiled format</li>
             <ul style="list-style-type:circle">
               <li>avoids parsing and most optimizations</li>
@@ -234,21 +262,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </ul>
         </section>
 
-        <section style="text-align: left;">
-          <h3>Open source compilers</h3>
-          <ul style="list-style-type:square">
-            <li> </li>
-          </ul>
-        </section>
-
-
         <section>
           <h1>end of presentation</h1>
           <h2>Thank you</h2>
         </section>
 
       </div>
-
     </div>
 
     <script src="js/reveal.js"></script>
