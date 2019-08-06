@@ -100,7 +100,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <li>Industrial adoption</li>
             <li>Excellent software engineering practice</li>
             <li>Large ecosystem</li>
+            <li>Commercial opportunities</li>
           </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <section>
+            <h3>Toolchain development opportunities in China</h3>
+            <img width="100%" data-src="./compiler_charts/huawei.jpg">
+          </section>
+
+          <section>
+            <h3>Toolchain development opportunities in China</h3>
+            <small>A market investigation and analysis</small>
+            <ul style="list-style-type:square">
+              <li> Only a few companies develop toolchains</li>
+              <li> Demands mostly from chip makers in China</li>
+              <ul style="list-style-type:circle">
+                <li># of companies rising steadily</li>
+                <li>Deep learning chips emerging</li>
+                <li>migrating from knock-off to proprietary</li>
+              </ul>
+              <li> Slow industrial adoption</li>
+            </ul>
+          </section>
         </section>
 
         <section style="text-align: left;">
@@ -118,38 +141,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>Easy to create specialty compilers</li>
               <li>Large ecosystem and friendly community</li> 
             </ul>
-          </ul>
-        </section>
-
-        <section>
-          <h4>方舟编译器(1)</h4>
-          A case study
-          <ul style="list-style-type:square">
-            <li>A Java AOT compiler for Android</li>
-            <ul style="list-style-type:circle">
-              <li>Compiles Java bytecode into Binary</li>
-              <li>GCC-based: will open source in November 2019</li>
-            </ul>
-
-            <li>What do we know from the existing advertisement?</li>
-            <ul style="list-style-type:circle">
-              <li>Eliminate(alleviate) JNI overhead</li>
-              <li>Still needs runtime library</li>
-              <li>Cannot get rid of garbage collection</li>
-              <li>Compatible with all(most?) Android distros</li>
-            </ul>
-        </section>
-
-        <section>
-          <h4>方舟编译器(2)</h4>
-          Can it live up with expectations?
-          <ul style="list-style-type:circle">
-            <li>Security is a concern</li>
-            <li>Should work for lightweight smartphone applications</li>
-            <li>Might not work for heavyweight applications</li>
-            <li>Optimizations might not be compatible with third-party tools</li>
-            <li>Improvement in Android JIT cannot benefit</li> 
-            <li>JIT will eventually prevail</li>
           </ul>
         </section>
 
@@ -190,11 +181,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section style="text-align: left;">
-          <h4>MLIR: evolution of LLVM IR</h4>
-          <ul style="list-style-type:square">
-            <li>"ML" is multi-purpose: multi-level, machine learning</li>
-            <li>Built for the Machine Learning community and beyond</li>
-            <li>Designed to be a unified infrastructure</li>
+          <section>
+            <h3>MLIR: evolution of LLVM IR</h3>
+            <ul style="list-style-type:square">
+              <li>"ML" is multi-purpose: multi-level, machine learning</li>
+              <li>Built for the Machine Learning community and beyond</li>
+          </section>
+
+          <section>
+            <h3>MLIR: a unified infrasttructure</h3>
             <li>Targetting the gap between source code level and LLVM IR level</li>
             <ul style="list-style-type:circle">
               <li>MLIR does not support low level code generation</li>
@@ -205,14 +200,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>easier polyhedral optimizations</li>
               <li>already works for all TensorFlow graphs</li>
             </ul>
-          </ul>
+            </ul>
+          </section>
         </section>
 
         <section style="text-align: left;">
-          <h4>Virtual Machines</h4>
-          VMs are everywhere
+          <h3>Virtual Machines</h3>
+          <small>VMs are everywhere</small>
           <ul style="list-style-type:square">
-            <li>Embedded in language runtimes:</li>
+            <li>Language runtimes:</li>
             <ul style="list-style-type:circle">
               <li>Java, Python, JavaScript</li>
             </ul>
@@ -229,18 +225,62 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section style="text-align: left;">
-          <h4>VM is a serious engineering effort</h4>
+          <h3>VM: serious engineering effort</h3>
+          <small>A personal experience</small>
           <ul style="list-style-type:square">
-            <li></li> 
+            <li>High-performance VMs takes years to mature</li> 
+            <ul style="list-style-type:circle">
+              <li>JIT compiler exponentially complicates engineering design</li>
+              <li>Some performance gain comes from software-hardware codesign</li>
+              <li>GC in Java takes ~10 years to mature</li>
+            </ul>
+            <li>Sophisticated VMs is hard to maintain</li>
           </ul>
-  
+        </section>
+
+        <section>
+          <section>
+            <h4>方舟编译器 -- A case study</h4>
+            <ul style="list-style-type:square">
+              <li>A Java AOT compiler for Android</li>
+              <ul style="list-style-type:circle">
+                <li>Compiles Java bytecode into Binary</li>
+                <li>GCC-based(?): will open source in November 2019</li>
+              </ul>
+
+              <li>What do we know from the existing advertisement?</li>
+              <ul style="list-style-type:circle">
+                <li>Eliminate(alleviate) JNI overhead</li>
+                <li>Still needs runtime library</li>
+                <li>Cannot get rid of garbage collection</li>
+                <li>Compatible with all(most?) Android distros</li>
+              </ul>
+          </section>
+
+          <section>
+            <h5>Can it live up with expectations?</h5>
+            <ul style="list-style-type:circle">
+              <li>Should work for lightweight smartphone applications</li>
+              <li>Security is a concern</li>
+              <li>Weaker optimization than JIT</li>
+              <li>Optimizations might not be compatible with third-party tools</li>
+              <li>Improvement in Android JIT cannot benefit</li> 
+              <li>JIT will eventually prevail</li>
+            </ul>
+          </section>
         </section>
 
         <section style="text-align: left;">
-          <h4>Case study: WebAssembly</h4>
+          <h4>Case study: JVM improvements over the years</h4>
+          <img width="100%" data-src="./compiler_charts/java32_perf.png" alt="Down arrow">
+          <small><a href="https://www.beyondjava.net/java-performance-through-the-ages">Source: Beyond Java (2013)</a></small>
+        </section>
+
+        <section style="text-align: left;">
+          <h3>Case study: WebAssembly</h3>
           <small>WASM is aiming to change the web</small>
           <ul style="list-style-type:square">
-            <li>WASM is a build target, not a language</li>
+            <li>a build target, not a language</li>
             <li>Distributed in precompiled format</li>
             <ul style="list-style-type:circle">
               <li>avoids parsing and most optimizations</li>
