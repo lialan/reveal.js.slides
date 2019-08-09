@@ -43,7 +43,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
       <div class="slides">
 
         <!-- title slide -->
-        <section>
+        <section data-background="./compiler_charts/gcc_logo.jpg", data-state="dimbg01">
           <h3>Open Source Compilers <br/>and<br/> Virtual Machines</h3>
           <h6>An engineering overview</h6>
           <br/>
@@ -71,15 +71,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section style="text-align: left;">
-          <h4>Active Open Source compilers</h4>
-          <ul style="list-style-type:square">
-            <li>GCC</li>
-            <li>LLVM</li>
-            <li><a href="https://github.com/open-watcom/open-watcom-v2">Open Watcom Compiler</a></li>
-            <li><a href="http://sdcc.sourceforge.net/">Small Device C Compiler (SPCC)</a></li>
-            <li><a href="https://github.com/dotnet/llilc">Microsoft's LLILC</a></li>
-            <li>...</li>
-          </ul>
+          <section>
+            <h4>Active Open Source compilers</h4>
+            <ul style="list-style-type:square">
+              <li>GCC</li>
+              <li>LLVM</li>
+              <li><a href="https://github.com/open-watcom/open-watcom-v2">Open Watcom Compiler</a></li>
+              <li><a href="http://sdcc.sourceforge.net/">Small Device C Compiler (SPCC)</a></li>
+              <li><a href="https://github.com/dotnet/llilc">Microsoft's LLILC</a></li>
+              <li>...</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Commercial compilers</h3>
+            <ul style="list-style-type:square">
+              <li>Intel's ICC</li>
+              <li>PICC</li>
+              <li>MSVC</li>
+            </ul>
+          </section>
         </section>
 
         <section>
@@ -93,8 +104,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </ul>
         </section>
 
-        <section style="text-align: left;">
-          <h4>Case study: Choosing LLVM</h4>
+        <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
+          <h4>Case study: LLVM</h4>
           <ul style="list-style-type:square">
             <li>UIUC License: permissive free at no charge</li>
             <li>Modular design</li>
@@ -155,15 +166,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section style="text-align: left;">
           <section>
-            <h4>LLVM IR: Universal Intermediate Representation</h4>
-            <ul style="list-style-type:square">
-              <li>IR: Intermediate Representation</li>
-              <ul style="list-style-type:circle">
-                <li>multiple sources</li>
-                <li>multiple target</li>
-              </ul>
-            </ul>
-            <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.png">
+            <h3>LLVM IR: <br/> Universal Intermediate Representation</h3>
+            <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.jpg">
             <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
           </section>
 
@@ -171,6 +175,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <h4>LLVM IR: at the core of LLVM ecosystem</h4>
             <ul style="list-style-type:square">
               <li>Designed to be a lower, universal IR for higher languages</li>
+              <ul style="list-style-type:circle">
+                <li>multiple sources, multiple targets</li>
+              </ul>
               <li>LLVM Modules are built around LLVM IR</li>
               <li>*NOT* a silver bullet</li>
             </ul>
