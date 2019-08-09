@@ -63,6 +63,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section style="text-align: left;">
           <h4>Compilers: After 50 years still going strong</h4>
+          <small>Compilers are complex software artifacts.</small>
           <ul style="list-style-type:square">
             <li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.146.5206&rep=rep1&type=pdf">Compiler Research: The next 50 years</a></li>
             <li><a href="https://liberty.princeton.edu/Publications/ieeepro83_future.pdf">Compiler Technology for Future Microprocessors</a></li>
@@ -153,18 +154,37 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
         <section style="text-align: left;">
-          <h4>LLVM IR: at the core of LLVM ecosystem</h4>
-          <ul style="list-style-type:square">
-            <li>IR: Intermediate Representation (TODO: use graph)</li>
-            <ul style="list-style-type:circle">
-              <li>multiple sources</li>
-              <li>multiple target</li>
-              <li>designed for special needs</li>
+          <section>
+            <h4>LLVM IR: Universal Intermediate Representation</h4>
+            <ul style="list-style-type:square">
+              <li>IR: Intermediate Representation</li>
+              <ul style="list-style-type:circle">
+                <li>multiple sources</li>
+                <li>multiple target</li>
+              </ul>
             </ul>
-            <li>Designed to be a lower, universal IR for higher languages</li>
-            <li>LLVM Modules are built around LLVM IR</li>
-            <li>*NOT* a silver bullet</li>
-          </ul>
+            <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.png">
+            <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
+          </section>
+
+          <section>
+            <h4>LLVM IR: at the core of LLVM ecosystem</h4>
+            <ul style="list-style-type:square">
+              <li>Designed to be a lower, universal IR for higher languages</li>
+              <li>LLVM Modules are built around LLVM IR</li>
+              <li>*NOT* a silver bullet</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>LLVM IR: The most common low-level IR</h4>
+            <img width="100%" data-src="./compiler_charts/LLVM_IR.png">
+            <small><a href="https://ai.google/research/pubs/pub48035">Source: "MLIR Primer: A Compiler Infrastructure for the End of Moore’s Law"</a></small>
+            <ul style="list-style-type:square">
+              <li>Most widely used in machine code generation</li>
+              <li>C-lang level abstraction</li>
+            </ul>
+          </section>
         </section>
 
         <section style="text-align: left;">
@@ -182,7 +202,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <li>Blockchain execution engine</li>
             <ul style="list-style-type:circle">
               <li>Verified smart contract compiing</li>
-              <li>Executing cost optimization</li>
+              <li>Execution cost optimization</li>
               <li>Privacy-preserving computing</li>
             </ul>
           </ul>
@@ -194,6 +214,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <ul style="list-style-type:square">
               <li>"ML" is multi-purpose: multi-level, machine learning</li>
               <li>Built for the Machine Learning community and beyond</li>
+              <li>An LLVM IR dialect for codegen</li>
           </section>
 
           <section>
@@ -205,6 +226,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             </ul>
             <li>Permits representation and optimizations LLVM IR cannot do</li>
             <ul style="list-style-type:circle">
+              <li>type system and operations are dialect defined</li>
               <li>easier polyhedral optimizations</li>
               <li>already works for all TensorFlow graphs</li>
             </ul>
@@ -238,9 +260,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <ul style="list-style-type:square">
             <li>High-performance VMs takes years to mature</li> 
             <ul style="list-style-type:circle">
-              <li>JIT compiler exponentially complicates engineering design</li>
+              <li>JIT and GC exponentially complicate the engineering design</li>
               <li>Some performance gain comes from software-hardware codesign</li>
-              <li>GC in Java takes ~10 years to mature</li>
             </ul>
             <li>Sophisticated VMs is hard to maintain</li>
           </ul>
@@ -248,32 +269,36 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section>
           <section>
-            <h4>方舟编译器 -- A case study</h4>
+            <h3>方舟编译器(Ark) -- A case study</h3>
             <ul style="list-style-type:square">
-              <li>A Java AOT compiler for Android</li>
+              <li>A static Java compiler for Android Apps</li>
               <ul style="list-style-type:circle">
                 <li>Compiles Java bytecode into Binary</li>
-                <li>GCC-based(?): will open source in November 2019</li>
+                <li>Based on Huawei's Maple</li>
               </ul>
-
-              <li>What do we know from the existing advertisement?</li>
+              <br/>
+              <li>What do outsiders know so far?</li>
               <ul style="list-style-type:circle">
                 <li>Eliminate(alleviate) JNI overhead</li>
                 <li>Still needs runtime library</li>
-                <li>Cannot get rid of garbage collection</li>
                 <li>Compatible with all(most?) Android distros</li>
               </ul>
           </section>
 
           <section>
-            <h5>Can it live up with expectations?</h5>
-            <ul style="list-style-type:circle">
+            <h3>Can it live up with expectations?</h3>
+            <ul style="list-style-type:square">
               <li>Should work for lightweight smartphone applications</li>
-              <li>Security is a concern</li>
+              <ul style="list-style-type:circle">
+                <li>Eliminates JIT's warm-up time, and resources</li>
+              </ul>
+
               <li>Weaker optimization than JIT</li>
-              <li>Optimizations might not be compatible with third-party tools</li>
-              <li>Improvement in Android JIT cannot benefit</li> 
-              <li>JIT will eventually prevail</li>
+              <ul style="list-style-type:circle">
+                <li>ART and JIT works on per-micro-architecture basis</li>
+                <li>ART and JIT improve over time, static code cannot</li>
+                <li>Cannot fully apply some JIT-specific optimizations</li>
+              </ul>
             </ul>
           </section>
         </section>
