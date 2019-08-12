@@ -119,7 +119,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section style="text-align: left;">
           <section>
             <h3>Toolchain development opportunities in China</h3>
-            <img width="100%" data-src="./compiler_charts/huawei.jpg">
+            <img width="100%" data-src="./compiler_charts/huawei.jpg"/>
           </section>
 
         <section style="text-align: left;">
@@ -167,7 +167,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section style="text-align: left;">
           <section>
             <h3>LLVM IR: <br/> Universal Intermediate Representation</h3>
-            <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.jpg">
+            <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.jpg"/>
             <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
           </section>
 
@@ -185,7 +185,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
           <section>
             <h4>LLVM IR: The most common low-level IR</h4>
-            <img width="100%" data-src="./compiler_charts/LLVM_IR.png">
+            <img width="100%" data-src="./compiler_charts/LLVM_IR.png"/>
             <small><a href="https://ai.google/research/pubs/pub48035">Source: "MLIR Primer: A Compiler Infrastructure for the End of Moore’s Law"</a></small>
             <ul style="list-style-type:square">
               <li>Most widely used in machine code generation</li>
@@ -225,19 +225,33 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </section>
 
           <section>
+            <h4>TensorFlow: What does it look like?</h4>
+            <img width="100%" data-src="./compiler_charts/tensorflow.png"/>
+            <small><a href="https://medium.com/tensorflow/mlir-a-new-intermediate-representation-and-compiler-framework-beba999ed18d">MLIR: A new intermediate representation and compiler framework</a></small>
+          </section>
+
+          <section>
             <h3>MLIR: a unified infrasttructure</h3>
-            <li>Targetting the gap between source code level and LLVM IR level</li>
-            <ul style="list-style-type:circle">
-              <li>MLIR does not support low level code generation</li>
-              <li>Works best together with LLVM</li>
+            <ul style="list-style-type:square">
+              <li>Targetting the gap between source code level and LLVM IR level</li>
+              <ul style="list-style-type:circle">
+                <li>do not support low level codegen</li>
+                <li>Works best together with LLVM</li>
+              </ul>
+
+              <li>Representation and optimizations beyond LLVM IR</li>
+              <ul style="list-style-type:circle">
+                <li>type system and operations are dialect defined</li>
+                <li>easier polyhedral optimizations</li>
+                <li>already works for all TensorFlow graphs</li>
+              </ul>
             </ul>
-            <li>Permits representation and optimizations LLVM IR cannot do</li>
-            <ul style="list-style-type:circle">
-              <li>type system and operations are dialect defined</li>
-              <li>easier polyhedral optimizations</li>
-              <li>already works for all TensorFlow graphs</li>
-            </ul>
-            </ul>
+          </section>
+
+          <section>
+            <img width="110%" data-src="./compiler_charts/MLIR_outline.png"/>
+            <small><a href="https://llvm.org/devmtg/2019-04/slides/Tutorial-AminiVasilacheZinenko-MLIR.pdf">MLIR Tutorial:
+Building a Compiler with MLIR</a></small>
           </section>
         </section>
 
@@ -312,7 +326,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section style="text-align: left;">
           <h4>Case study: JVM improvements over the years</h4>
-          <img width="100%" data-src="./compiler_charts/java32_perf.png" alt="Down arrow">
+          <img width="100%" data-src="./compiler_charts/java32_perf.png"/>
           <small><a href="https://www.beyondjava.net/java-performance-through-the-ages">Source: Beyond Java (2013)</a></small>
         </section>
 
