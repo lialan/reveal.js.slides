@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>The EVM LLVM Project</title>
+
+    <meta name="description" content="An engineering overview">
+    <meta name="author" content="Alan Li">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <!-- title slide -->
+        <section data-background="./evm_llvm/dragon.png">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3>Alan Li</h3>
+        </section>
+
+        <!-- synopsis slide -->
+        <section "style=text-align: left;">
+          <h2>Synopsis</h2>
+          <ul style="list-style-type:square">
+            <li> Yet another smart contract compiler</li>
+            <li> Impacts to Ethereum community</li>
+            <li> Implementation details</li>
+            <li> Collaboration</li>
+            <li> Demo</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>EVM LLVM: What is that and why we need it</h4>
+        </section>
+
+        <section style="text-align: left;">
+          <section>
+            <h4>Active Open Source compilers</h4>
+          </section>
+
+          <section>
+            <h3>Commercial compilers</h3>
+            <ul style="list-style-type:square">
+              <li>Intel's ICC</li>
+              <li>PICC</li>
+              <li>MSVC</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h4>Measurement of compiler performance</h4>
+          <ul style="list-style-type:square">
+            <li>Execution speed</li>
+            <li>Code size</li>
+            <li>Power efficiency</li>
+            <li>Cost of execution</li>
+            <li>Memory consumption</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
+          <h4>Case study: LLVM</h4>
+          <ul style="list-style-type:square">
+            <li>UIUC License: permissive free at no charge</li>
+            <li>Modular design</li>
+            <li>Industrial adoption</li>
+            <li>Excellent software engineering practice</li>
+            <li>Large ecosystem</li>
+            <li>Commercial opportunities</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <section>
+            <h3>Toolchain development opportunities in China</h3>
+            <img width="100%" data-src="./compiler_charts/huawei.jpg"/>
+          </section>
+
+        <section style="text-align: left;">
+          <section>
+            <h4>Commercial LLVM (albeit a small niche)</h4>
+            <ul style="list-style-type:square">
+              <li>History: compilers used to be commercial</li>
+              <li>Then GCC came</li>
+              <ul style="list-style-type:square">
+                <li>GCC destroyed most compiler companies</li>
+              </ul>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Commercial LLVM (albeit a small niche)</h4>
+            <h4>LLVM makes commercial compiler companies possibly again</h4>
+            <ul style="list-style-type:square">
+              <li>'BSD' licensing permits proprietary uses</li>
+              <li>Competitve compiler infrastructure</li>
+              <li>Modular design works for multiple purposes</li>
+              <li>Easy to create specialty compilers</li>
+              <li>Large ecosystem and friendly community</li> 
+            </ul>
+          </section>
+        </section>
+
+          <section>
+            <h3>Toolchain development opportunities in China</h3>
+            <small>A market investigation and analysis</small>
+            <ul style="list-style-type:square">
+              <li> Only a few companies develop toolchains</li>
+              <li> Demands mostly from chip makers in China</li>
+              <ul style="list-style-type:circle">
+                <li># of companies rising steadily</li>
+                <li>Deep learning chips emerging</li>
+                <li>migrating from knock-off to proprietary</li>
+              </ul>
+              <li> Slow industrial adoption</li>
+            </ul>
+          </section>
+        </section>
+
+
+        <section style="text-align: left;">
+          <section>
+            <h3>LLVM IR: <br/> Universal Intermediate Representation</h3>
+            <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.jpg"/>
+            <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
+          </section>
+
+          <section>
+            <h4>LLVM IR: at the core of LLVM ecosystem</h4>
+            <ul style="list-style-type:square">
+              <li>Designed to be a lower, universal IR for higher languages</li>
+              <ul style="list-style-type:circle">
+                <li>multiple sources, multiple targets</li>
+              </ul>
+              <li>LLVM Modules are built around LLVM IR</li>
+              <li>*NOT* a silver bullet</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>LLVM IR: The most common low-level IR</h4>
+            <img width="100%" data-src="./compiler_charts/LLVM_IR.png"/>
+            <small><a href="https://ai.google/research/pubs/pub48035">Source: "MLIR Primer: A Compiler Infrastructure for the End of Moore’s Law"</a></small>
+            <ul style="list-style-type:square">
+              <li>Most widely used in machine code generation</li>
+              <li>C-lang level abstraction</li>
+            </ul>
+          </section>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>Future topics of compiler engineering</h4>
+          <small>What we talk about when we talk about the end of Moore's Law?</small>
+          <ul style="list-style-type:square">
+            <li>Heterogeneous Computing</li>
+            <ul style="list-style-type:circle">
+              <li>GPGPU, BigData engines</li>
+            </ul>
+            <li>Machine Learning frameworks</li>
+            <ul style="list-style-type:circle">
+              <li>TensorFlow, TVM, etc...</li>
+            </ul>
+            <li>Blockchain execution engine</li>
+            <ul style="list-style-type:circle">
+              <li>Verified smart contract compiing</li>
+              <li>Execution cost optimization</li>
+              <li>Privacy-preserving computing</li>
+            </ul>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <section>
+            <h3>MLIR: evolution of LLVM IR</h3>
+            <ul style="list-style-type:square">
+              <li>"ML" is multi-purpose: multi-level, machine learning</li>
+              <li>Built for the Machine Learning community and beyond</li>
+              <li>An LLVM IR dialect for codegen</li>
+          </section>
+
+          <section>
+            <h4>TensorFlow: What does it look like?</h4>
+            <img width="100%" data-src="./compiler_charts/tensorflow.png"/>
+            <small><a href="https://medium.com/tensorflow/mlir-a-new-intermediate-representation-and-compiler-framework-beba999ed18d">MLIR: A new intermediate representation and compiler framework</a></small>
+          </section>
+
+          <section>
+            <h3>MLIR: a unified infrasttructure</h3>
+            <ul style="list-style-type:square">
+              <li>Targetting the gap between source code level and LLVM IR level</li>
+              <ul style="list-style-type:circle">
+                <li>do not support low level codegen</li>
+                <li>Works best together with LLVM</li>
+              </ul>
+
+              <li>Representation and optimizations beyond LLVM IR</li>
+              <ul style="list-style-type:circle">
+                <li>type system and operations are dialect defined</li>
+                <li>easier polyhedral optimizations</li>
+                <li>already works for all TensorFlow graphs</li>
+              </ul>
+            </ul>
+          </section>
+
+          <section>
+            <img width="110%" data-src="./compiler_charts/MLIR_outline.png"/>
+            <small><a href="https://llvm.org/devmtg/2019-04/slides/Tutorial-AminiVasilacheZinenko-MLIR.pdf">MLIR Tutorial:
+Building a Compiler with MLIR</a></small>
+          </section>
+        </section>
+
+        <section style="text-align: left;">
+          <h3>Virtual Machines</h3>
+          <small>VMs are everywhere</small>
+          <ul style="list-style-type:square">
+            <li>Language runtimes:</li>
+            <ul style="list-style-type:circle">
+              <li>Java, Python, JavaScript</li>
+            </ul>
+            <li>VM Components:</li>
+            <ul style="list-style-type:circle">
+              <li>Library, Interpreter, Garbage Collector, JIT</br>
+              <small>GC and JIT can be extremely coplicated</small></li>
+            </ul>
+            <li>Other types of VMs</li>
+            <ul style="list-style-type:circle">
+              <li>System-level VMs, Binary-translators, emulators...</li>
+            </ul>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h3>VM: serious engineering effort</h3>
+          <small>A personal experience</small>
+          <ul style="list-style-type:square">
+            <li>High-performance VMs takes years to mature</li> 
+            <ul style="list-style-type:circle">
+              <li>JIT and GC exponentially complicate the engineering design</li>
+              <li>Some performance gain comes from software-hardware codesign</li>
+            </ul>
+            <li>Sophisticated VMs is hard to maintain</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h3>方舟编译器(Ark) -- A case study</h3>
+            <ul style="list-style-type:square">
+              <li>A static Java compiler for Android Apps</li>
+              <ul style="list-style-type:circle">
+                <li>Compiles Java bytecode into Binary</li>
+                <li>Based on Huawei's Maple</li>
+              </ul>
+              <br/>
+              <li>What do outsiders know so far?</li>
+              <ul style="list-style-type:circle">
+                <li>Eliminate(alleviate) JNI overhead</li>
+                <li>Still needs runtime library</li>
+                <li>Compatible with all(most?) Android distros</li>
+              </ul>
+          </section>
+
+          <section>
+            <h3>Can it live up with expectations?</h3>
+            <ul style="list-style-type:square">
+              <li>Should work for lightweight smartphone applications</li>
+              <ul style="list-style-type:circle">
+                <li>Eliminates JIT's warm-up time, and resources</li>
+              </ul>
+
+              <li>Weaker optimization than JIT</li>
+              <ul style="list-style-type:circle">
+                <li>ART and JIT works on per-micro-architecture basis</li>
+                <li>ART and JIT improve over time, static code cannot</li>
+                <li>Cannot fully apply some JIT-specific optimizations</li>
+              </ul>
+            </ul>
+          </section>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>Case study: JVM improvements over the years</h4>
+          <img width="100%" data-src="./compiler_charts/java32_perf.png"/>
+          <small><a href="https://www.beyondjava.net/java-performance-through-the-ages">Source: Beyond Java (2013)</a></small>
+        </section>
+
+        <section style="text-align: left;">
+          <h3>Case study: WebAssembly</h3>
+          <small>WASM is aiming to change the web</small>
+          <ul style="list-style-type:square">
+            <li>a build target, not a language</li>
+            <li>Distributed in precompiled format</li>
+            <ul style="list-style-type:circle">
+              <li>avoids parsing and most optimizations</li>
+            </ul>
+            <li><a href="https://github.com/WebAssembly/wasm-c-api">Host API</a>
+               makes it even faster</li>
+            <li>Streaming compiling made possible</li>
+          </ul>
+          <li>Improves HTML5 only pages</li>
+          <li>Safe guaranteed by WASM virtual machine</li>
+          <li>New commercial opportunities</li>
+        </section>
+
+        <section style="text-align: left;">
+          <h3>References</h3>
+          <ul style="list-style-type:square">
+            <li> <a href="http://aosabook.org/en/llvm.html">The Architecture of Open Source Applications -- LLVM</li>
+            <li> <a href="https://llvm.org/devmtg/2019-04/slides/Keynote-ShpeismanLattner-MLIR.pdf">MLIR: Multi-Level Intermediate Representation Compiler Infrastructure</a> </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>end of presentation</h1>
+          <h2>Thank you</h2>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true },
+          { src: 'plugin/search/search.js', async: true },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
