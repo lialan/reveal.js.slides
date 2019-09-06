@@ -105,18 +105,28 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <h3>Impacts to the Ethereum community</h3>
           <ul style="list-style-type:square">
             <li>More programming languages coming to Ethereum</li>
-            <li>Supports for current and future EVMs</li>
-            <li>High quality engineered toolkits</li>
-            <li>Future-proof development toolchain</li>
+            <ul style="list-style-type:circle">
+              <li>Rust, Golang, C/C++, OCaml ...</li>
+            </ul>
+            <li>More high-quality toolkits</li>
+            <ul style="list-style-type:circle">
+              <li>TODO</li>
+            </ul>
+            <li>A future-proof toolchain</li>
             <li>Further optimized gas consumption</li>
             <li>Long term community support</li>
+            <ul style="list-style-type:circle">
+              <li>current and future EVMs</li>
+              <li>supports from LLVM community</li>
+            </ul>
           </ul>
         </section>
 
         <section style="text-align: left;">
+          <section>
           <h3>EVM LLVM: Engineering Details</h3>
           <ul style="list-style-type:square">
-            <li>256 bit support in LLVM IR</li>
+            <li>256 bit support</li>
             <ul style="list-style-type:circle">
               <li>256 bit support exposed to langauge frontends</li>
               <li>Narrower-width data types are expanded internally</li>
@@ -126,19 +136,32 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>Stack manipulation scheduler</li>
               <li>Gas consumption optimizations</li>
             </ul>
-            <li>Stackifier</li>
-            <ul style="list-style-type:circle">
-              <li>Convert register-based internal representation to stack opcodes</li>
-            </ul>
-            <li>Contract ABI generation</li>
           </ul>
+          </section>
+
+          <section>
+            <h3>EVM LLVM: Engineering Details</h3>
+            <ul style="list-style-type:square">
+              <li>Stackifier</li>
+              <ul style="list-style-type:circle">
+                <li>Converts register-based internal representation to stack opcodes</li>
+              </ul>
+              <li>Contract ABI generation</li>
+              <ul style="list-style-type:circle">
+                <li>Currently relies on frontend</li>
+              </ul>
+            </ul>
+          </section>
         </section>
 
         <section>
-          <h4>Project Collaboration</h4>
           <img width="100%" data-src="./evm_llvm/etc_ss.jpg"/>
+          <h4>Collaboration with Second State</h4>
         </section>
 
+        <section>
+          <h1>Demo</h1>
+        </section>
 
         <section>
           <h1>end of presentation</h1>
