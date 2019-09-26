@@ -59,11 +59,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
           <h2>Synopsis</h2>
           <ul style="list-style-type:square">
-            <li> Yet another smart contract compiler</li>
+            <li> Why another contract compiler</li>
             <li> Impacts to Ethereum community</li>
-            <li> Implementation details</li>
+            <li> Engineering details</li>
             <li> Collaboration</li>
-            <li> Demo</li>
           </ul>
         </section>
 
@@ -75,28 +74,31 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             </ul>
           </section>
 
+          <!---
           <section>
-            <h4>A retargetable, multiple source compiler framework</h4>
+            <h4>LLVM is: </h4>
+            A retargetable, multiple source compiler framework
             <img width="100%" data-src="./evm_llvm/llvm_structure.png"/>
           </section>
+          --->
 
           <section>
-            <h4>LLVM IR: at the core of LLVM ecosystem</h4>
+            <h4>The LLVM ecosystem</h4>
             <img width="110%" data-src="./compiler_charts/llvm_compiler_pipeline.jpg"/>
             <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
             <br/>
             <ul style="list-style-type:square">
+              <li>The most commonly used compiler infrastructure</li>
               <li>LLVM Modules are built around LLVM IR</li>
             </ul>
           </section>
 
           <section>
-            <h4>LLVM: The most commonly used compiler infrastructure</h4>
             <img width="100%" data-src="./compiler_charts/LLVM_IR.png"/>
             <small><a href="https://ai.google/research/pubs/pub48035">Source: "MLIR Primer: A Compiler Infrastructure for the End of Moore’s Law"</a></small>
             <ul style="list-style-type:square">
-              <li>Most widely used in machine code generation</li>
-              <li>C-lang level abstraction</li>
+              <li>De facto the standard of open source code generation</li>
+              <li>Ecosystem includes lots of helpful tools</li>
             </ul>
           </section>
         </section>
@@ -104,21 +106,27 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section>
           <h3>Impacts to the Ethereum community</h3>
           <ul style="list-style-type:square">
-            <li>More programming languages coming to Ethereum</li>
+            <li>More programming languages possible</li>
             <ul style="list-style-type:circle">
               <li>Rust, Golang, C/C++, OCaml ...</li>
             </ul>
             <li>More high-quality toolkits</li>
             <ul style="list-style-type:circle">
-              <li>TODO</li>
+              <li>optimizer, analyzer, REPL, ...</li>
             </ul>
-            <li>A future-proof toolchain</li>
-            <li>Further optimized gas consumption</li>
             <li>Long term community support</li>
             <ul style="list-style-type:circle">
               <li>current and future EVMs</li>
               <li>supports from LLVM community</li>
             </ul>
+          </ul>
+        </section>
+
+        <section>
+          <h4>A future-proof toolchain for Ethereum</h4>
+          <ul style="list-style-type:square">
+            <li>With LLVM, migrating to other engine is easier</li>
+            <li>Migrating to Ethereum Classic is easier</li>
           </ul>
         </section>
 
@@ -131,10 +139,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>256 bit support exposed to langauge frontends</li>
               <li>Narrower-width data types are expanded internally</li>
             </ul>
-            <li>Optimizations</li>
+            <li>Stackifier</li>
             <ul style="list-style-type:circle">
-              <li>Stack manipulation scheduler</li>
-              <li>Gas consumption optimizations</li>
+              <li>generic optimization passes on register-based opcodes</li>
+              <li>Converts register-based opcodes to stack opcodes</li>
             </ul>
           </ul>
           </section>
@@ -142,9 +150,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <section>
             <h3>EVM LLVM: Engineering Details</h3>
             <ul style="list-style-type:square">
-              <li>Stackifier</li>
+              <li>EVM-specific optimizations (planned)</li>
               <ul style="list-style-type:circle">
-                <li>Converts register-based internal representation to stack opcodes</li>
+                <li>Stack manipulation scheduler</li>
+                <li>Gas consumption optimizations</li>
               </ul>
               <li>Contract ABI generation</li>
               <ul style="list-style-type:circle">
@@ -156,11 +165,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section>
           <img width="100%" data-src="./evm_llvm/etc_ss.jpg"/>
-          <h4>Collaboration with Second State</h4>
-        </section>
-
-        <section>
-          <h1>Demo</h1>
+          <h4>Building LLVM-based toolchain</h4>
+          <ul style="list-style-type:square">
+            <li>Collaboration with Second State's SOLL</li>
+            <ul style="list-style-type:circle">
+              <li>A Solidity to EVM pipeline</li>
+              <li>Using SOLL as Solidity's frontend</li>
+              <li>Offline demo at Second State's booth</li>
+            </ul>
+          </ul>
         </section>
 
         <section>
