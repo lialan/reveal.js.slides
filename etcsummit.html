@@ -59,28 +59,30 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
           <h2>Synopsis</h2>
           <ul style="list-style-type:square">
-            <li> Why another contract compiler</li>
+            <li> What is EVM LLVM project </li>
             <li> Impacts to Ethereum community</li>
             <li> Engineering details</li>
-            <li> Collaboration</li>
+            <li> Demo </li>
           </ul>
         </section>
 
         <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
           <section>
-            <h4>EVM LLVM: What is that and why we need it</h4>
+            <h2>EVM LLVM: What is it?</h2>
             <ul style="list-style-type:square">
-
+              <li> A new LLVM-based compiler backend
+              <br/> targeting EVM architecture</li>
+              <br/>
+              <li> But ... what is LLVM? </li>
             </ul>
           </section>
 
-          <!---
           <section>
-            <h4>LLVM is: </h4>
+            <h3>LLVM is: </h3>
             A retargetable, multiple source compiler framework
             <img width="100%" data-src="./evm_llvm/llvm_structure.png"/>
+            <li>The most widely used compiler framework</li>
           </section>
-          --->
 
           <section>
             <h4>The LLVM ecosystem</h4>
@@ -88,7 +90,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
             <br/>
             <ul style="list-style-type:square">
-              <li>The most commonly used compiler infrastructure</li>
               <li>LLVM Modules are built around LLVM IR</li>
             </ul>
           </section>
@@ -97,37 +98,62 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <img width="100%" data-src="./compiler_charts/LLVM_IR.png"/>
             <small><a href="https://ai.google/research/pubs/pub48035">Source: "MLIR Primer: A Compiler Infrastructure for the End of Moore’s Law"</a></small>
             <ul style="list-style-type:square">
-              <li>De facto the standard of open source code generation</li>
+              <li>De facto the standard of open source code generation framework</li>
               <li>Ecosystem includes lots of helpful tools</li>
             </ul>
           </section>
         </section>
 
-        <section>
-          <h3>Impacts to the Ethereum community</h3>
-          <ul style="list-style-type:square">
-            <li>More programming languages possible</li>
-            <ul style="list-style-type:circle">
-              <li>Rust, Golang, C/C++, OCaml ...</li>
+        <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
+          <section>
+            <h3>Why does Ethereum need LLVM?</h3>
+            <ul style="list-style-type:square">
+              <li>A friendly toolchain ecosystem</li>
+              <li>Future-proof development environment</li>
+              <li>Better performance</li>
             </ul>
-            <li>More high-quality toolkits</li>
-            <ul style="list-style-type:circle">
-              <li>optimizer, analyzer, REPL, ...</li>
+          </section>
+
+          <section>
+            <h3>Impacts to the developers</h3>
+            <ul style="list-style-type:square">
+              <li>More programming languages possible</li>
+              <ul style="list-style-type:circle">
+                <li>Rust, Golang, C/C++, OCaml ...</li>
+              </ul>
+              <li>A whole ecosystem for developer tools</li>
+              <ul style="list-style-type:circle">
+                <li>optimizer, analyzer, REPL, ...</li>
+              </ul>
+              <li>Long term community support</li>
+              <li>Gas efficiency</li>
             </ul>
-            <li>Long term community support</li>
-            <ul style="list-style-type:circle">
-              <li>current and future EVMs</li>
-              <li>supports from LLVM community</li>
+          </section>
+
+          <section>
+            <h4>A future-proof development toolchain</h4>
+            <ul style="list-style-type:square">
+              <li>Strong and mature ecosystem support</li>
+              <li>Supports current and future EVMs</li>
+              <li>Migration to Ethereum Classic made easy</li>
+              <li>Migration to next-gen engine made easy</li>
             </ul>
-          </ul>
+          </section>
         </section>
 
         <section>
-          <h4>A future-proof toolchain for Ethereum</h4>
+          <h2>Project Status</h2>
           <ul style="list-style-type:square">
-            <li>With LLVM, migrating to other engine is easier</li>
-            <li>Migrating to Ethereum Classic is easier</li>
+            <li>Pre-Alpha Stage</li>
+            <ul style="list-style-type:circle">
+              <li>Alpha release soon</li>
+            </ul>
+            <li>Collaborating with Second State's SOLL</li>
+            <ul style="list-style-type:circle">
+              <li>LLVM-based Solidity toolchain</li>
+            </ul>
           </ul>
+
         </section>
 
         <section style="text-align: left;">
@@ -163,9 +189,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </section>
         </section>
 
+        <!--
         <section>
           <img width="100%" data-src="./evm_llvm/etc_ss.jpg"/>
-          <h4>Building LLVM-based toolchain</h4>
+          <h4>Building a LLVM-based toolchain</h4>
           <ul style="list-style-type:square">
             <li>Collaboration with Second State's SOLL</li>
             <ul style="list-style-type:circle">
@@ -174,6 +201,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>Offline demo at Second State's booth</li>
             </ul>
           </ul>
+        </section>
+        -->
+
+        <section>
+          <h1>Demo</h1>
         </section>
 
         <section>
