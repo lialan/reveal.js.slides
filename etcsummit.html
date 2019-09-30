@@ -152,22 +152,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <ul style="list-style-type:circle">
               <li>Alpha release soon</li>
             </ul>
-            <li>Collaborating with Second State's SOLL</li>
+            <li>Collaboration</li>
             <ul style="list-style-type:circle">
+              <li>Second State's SOLL</li>
               <li>LLVM-based Solidity toolchain</li>
             </ul>
           </ul>
-
         </section>
 
         <section style="text-align: left;">
           <section>
-          <h3>EVM LLVM: Engineering Details</h3>
+          <h3>EVM LLVM: Engineering Details (1)</h3>
           <ul style="list-style-type:square">
             <li>256 bit support</li>
             <ul style="list-style-type:circle">
               <li>256 bit support exposed to langauge frontends</li>
               <li>Narrower-width data types are expanded internally</li>
+            </ul>
+            <li>EVM-specific opcodes exposed as intrinsics</li>
+            <ul style="list-style-type:circle">
+              <li>Such as: <TT>BLOCKHASH</TT>, <TT>CALLER</TT>, <TT>GASPRICE</TT>, ...</li>
             </ul>
             <li>Stackifier</li>
             <ul style="list-style-type:circle">
@@ -178,7 +182,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </section>
 
           <section>
-            <h3>EVM LLVM: Engineering Details</h3>
+            <h3>EVM LLVM: Engineering Details (2)</h3>
             <ul style="list-style-type:square">
               <li>EVM-specific optimizations (planned)</li>
               <ul style="list-style-type:circle">
