@@ -79,24 +79,23 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
           <section>
             <h3>LLVM is: </h3>
-            A retargetable, multiple source compiler framework
             <img width="100%" data-src="./evm_llvm/llvm_structure.png"/>
-            <li>The most widely used compiler framework</li>
+            <li>A retargetable, multiple source compiler framework</li>
+            <li>Many projects/components are built around it</li>
           </section>
 
           <section>
-            <h4>The LLVM ecosystem</h4>
-            <img width="110%" data-src="./evm_llvm/llvm_compiler_pipeline.jpg"/>
-            <small><a href="https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/">Graph Source</a></small>
+            <h4>LLVM compiler infrastructure</h4>
+            <img width="110%" data-src="./evm_llvm/llvm_ir.png"/>
             <br/>
             <ul style="list-style-type:square">
-              <li>LLVM Modules are built around LLVM IR</li>
+              <li>Core components: LLVM IR, LLVM Passes</li>
             </ul>
           </section>
 
           <section>
             <img width="100%" data-src="./compiler_charts/LLVM_IR.png"/>
-            <small><a href="https://ai.google/research/pubs/pub48035">Source</a></small>
+            <small><a href="https://ai.google/research/pubs/pub48035">Graph source</a></small>
             <ul style="list-style-type:square">
               <li>De facto the standard of open source code generation framework</li>
               <li>Ecosystem includes lots of helpful tools</li>
@@ -106,20 +105,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
           <section>
-            <h3>Why does Ethereum need LLVM?</h3>
+            <h2>Why does Ethereum family need LLVM?</h2>
+          </section>
+
+          <section>
+            <a href="https://blog.aion.network/aion-virtual-machine-avm-why-not-wasm-5d044c0010f4"><img width="80%" data-src="./evm_llvm/vm_comparison.png"/></a>
+            <br/>
+            <small><a href="https://blog.aion.network/aion-virtual-machine-avm-why-not-wasm-5d044c0010f4">Chart source</a></small>
+          </section>
+
+          <section>
+            <h3>LLVM brings to Ethereum:</h3>
             <ul style="list-style-type:square">
-              <li>A friendly toolchain ecosystem</li>
+              <li>A developer-friendly toolchain ecosystem</li>
               <li>Future-proof development environment</li>
               <li>Better performance</li>
             </ul>
           </section>
 
           <section>
-            <a href="https://blog.aion.network/aion-virtual-machine-avm-why-not-wasm-5d044c0010f4"><img width="80%" data-src="./evm_llvm/vm_comparison.png"/></a>
-          </section>
-
-          <section>
-            <h3>Impacts to the developers</h3>
+            <h3>Impacts to the blockchain</h3>
             <ul style="list-style-type:square">
               <li>More programming languages possible</li>
               <ul style="list-style-type:circle">
@@ -141,6 +146,17 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <li>Supports current and future EVMs</li>
               <li>Migration to Ethereum Classic made easy</li>
               <li>Migration to next-gen engine made easy</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>What can EVM LLVM be used for?</h3>
+            <ul style="list-style-type:square">
+              <li>As a standalone smart contract ...</li>
+              <ul style="list-style-type:circle">
+                <li>compiler, analyzer, optimizer, verifier, ...</li>
+              </ul>
+              <li>As a library component for a SDK</li>
             </ul>
           </section>
         </section>
@@ -194,6 +210,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               <ul style="list-style-type:circle">
                 <li>Currently relies on frontend</li>
               </ul>
+              <li>Compatible with existing tools</li>
             </ul>
           </section>
         </section>
@@ -215,6 +232,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section>
           <h1>Demo</h1>
+          <li>Utilizing Second State's SOLL frontend</li>
         </section>
 
         <section>
