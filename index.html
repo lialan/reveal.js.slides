@@ -1,49 +1,280 @@
 <!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html lang="en">
 
-		<title>reveal.js</title>
+  <head>
+    <meta charset="utf-8">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <title>The EVM LLVM Project</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <meta name="description" content="An engineering overview">
+    <meta name="author" content="Alan Li">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<script src="js/reveal.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <!-- title slide -->
+        <section data-background="./evm_llvm/dragon.png">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3>Alan Li</h3>
+        </section>
+
+        <!-- synopsis slide -->
+        <section style="text-align: left;", data-background="./evm_llvm/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
+          <h2>Synopsis</h2>
+          <ul style="list-style-type:square">
+            <li> What is EVM LLVM project </li>
+            <li> Impacts to Ethereum community</li>
+            <li> Engineering details</li>
+            <li> Sneak peek</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;", data-background="./evm_llvm/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
+          <section>
+            <h2>EVM LLVM: What is it?</h2>
+            <ul style="list-style-type:square">
+              <li> A new LLVM-based compiler backend
+              <br/> targeting EVM architecture</li>
+              <br/>
+              <li> But ... what is LLVM? </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>LLVM is: </h3>
+            <img width="100%" data-src="./evm_llvm/llvm_structure.png"/>
+            <li>A retargetable, multiple source compiler framework</li>
+            <li>Many projects/components are built around it</li>
+          </section>
+
+          <section>
+            <h4>LLVM compiler infrastructure</h4>
+            <img width="110%" data-src="./evm_llvm/llvm_ir.png"/>
+            <br/>
+            <ul style="list-style-type:square">
+              <li>Core components: LLVM IR, LLVM Passes</li>
+            </ul>
+          </section>
+
+          <section>
+            <img width="100%" data-src="./compiler_charts/LLVM_IR.png"/>
+            <small><a href="https://ai.google/research/pubs/pub48035">Graph source</a></small>
+            <ul style="list-style-type:square">
+              <li>De facto the standard of open source code generation framework</li>
+              <li>Ecosystem includes lots of helpful tools</li>
+            </ul>
+          </section>
+        </section>
+
+        <section style="text-align: left;", data-background="./compiler_charts/llvm_logo.png", data-state="dimbg02", data-background-size="80%">
+          <section>
+            <h2>Why does Ethereum family need LLVM?</h2>
+          </section>
+
+          <section>
+            <a href="https://blog.aion.network/aion-virtual-machine-avm-why-not-wasm-5d044c0010f4"><img width="80%" data-src="./evm_llvm/vm_comparison.png"/></a>
+            <br/>
+            <small><a href="https://blog.aion.network/aion-virtual-machine-avm-why-not-wasm-5d044c0010f4">Chart source</a></small>
+          </section>
+
+          <section>
+            <h3>LLVM brings to Ethereum:</h3>
+            <ul style="list-style-type:square">
+              <li>A developer-friendly toolchain ecosystem</li>
+              <li>Future-proof development environment</li>
+              <li>Better performance</li>
+              <li>Security tools</li>
+              <li>Many more opportunities...</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Impacts to the blockchain</h3>
+            <ul style="list-style-type:square">
+              <li>More programming languages possible</li>
+              <ul style="list-style-type:circle">
+                <li>Rust, Golang, C/C++, OCaml ...</li>
+              </ul>
+              <li>A whole ecosystem for developer tools</li>
+              <ul style="list-style-type:circle">
+                <li>optimizer, analyzer, REPL, ...</li>
+              </ul>
+              <li>Long term community support</li>
+              <li>Gas efficiency</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>A future-proof development toolchain</h4>
+            <ul style="list-style-type:square">
+              <li>Strong and mature ecosystem support</li>
+              <li>Supports current and future EVMs</li>
+              <li>Migration to Ethereum Classic made easy</li>
+              <li>Migration to next-gen engine made easy</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>What can EVM LLVM be used for?</h3>
+            <ul style="list-style-type:square">
+              <li>As a standalone smart contract ...</li>
+              <ul style="list-style-type:circle">
+                <li>compiler, analyzer, optimizer, verifier, ...</li>
+              </ul>
+              <li>As a library component for a SDK</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Project Status</h2>
+          <ul style="list-style-type:square">
+            <li>Backend: Pre-Alpha Stage</li>
+            <ul style="list-style-type:circle">
+              <li>Alpha release soon</li>
+            </ul>
+            <li>Collaboration</li>
+            <ul style="list-style-type:circle">
+              <li>Second State's SOLL</li>
+              <li>LLVM-based Solidity toolchain</li>
+            </ul>
+            <li>Involving developer community</li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <section>
+          <h3>EVM LLVM: Engineering Details (1)</h3>
+          <ul style="list-style-type:square">
+            <li>Based on LLVM 10.0.dev</li>
+            <li>256 bit support</li>
+            <ul style="list-style-type:circle">
+              <li>256 bit support exposed to langauge frontends</li>
+              <li>Narrower-width data types are expanded internally</li>
+            </ul>
+            <li>EVM-specific opcodes exposed as intrinsics</li>
+            <ul style="list-style-type:circle">
+              <li>Such as: <TT>BLOCKHASH</TT>, <TT>CALLER</TT>, <TT>GASPRICE</TT>, ...</li>
+            </ul>
+            <li>Stackifier</li>
+            <ul style="list-style-type:circle">
+              <li>generic optimization passes on register-based opcodes</li>
+              <li>Converts register-based opcodes to stack opcodes</li>
+            </ul>
+          </ul>
+          </section>
+
+          <section>
+            <h3>EVM LLVM: Engineering Details (2)</h3>
+            <ul style="list-style-type:square">
+              <li>open source from the beginning</li>
+              <li>EVM-specific optimizations (planned)</li>
+              <ul style="list-style-type:circle">
+                <li>Stack manipulation scheduler</li>
+                <li>Gas consumption optimizations</li>
+              </ul>
+              <li>Contract ABI generation</li>
+              <ul style="list-style-type:circle">
+                <li>Currently relies on frontend</li>
+              </ul>
+              <li>Compatibilities with existing tools</li>
+            </ul>
+          </section>
+        </section>
+
+        <!--
+        <section>
+          <img width="100%" data-src="./evm_llvm/etc_ss.jpg"/>
+          <h4>Building a LLVM-based toolchain</h4>
+          <ul style="list-style-type:square">
+            <li>Collaboration with Second State's SOLL</li>
+            <ul style="list-style-type:circle">
+              <li>A Solidity to EVM pipeline</li>
+              <li>Using SOLL as Solidity's frontend</li>
+              <li>Offline demo at Second State's booth</li>
+            </ul>
+          </ul>
+        </section>
+        -->
+
+        <section>
+          <h1>Sneak peek</h1>
+          <img width="60%" data-src="./evm_llvm/repo.png"/>
+          <ul style="list-style-type:square">
+            <li>We need community involvement.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>end of presentation</h1>
+          <h2>Thank you</h2>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true },
+          { src: 'plugin/search/search.js', async: true },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
 </html>
